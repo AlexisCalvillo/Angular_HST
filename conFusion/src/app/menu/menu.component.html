@@ -9,9 +9,9 @@
     <mat-grid-list cols="2" rowHeight="200px">
         <mat-grid-tile *ngFor = "let item of dishes" (click)="onSelect(item)" >
             <img height="200px" src={{item.image}} alt={{item.name}}>
-            <mat-grig-tile-footer>
+            <mat-grid-tile-footer>
                 <h1 matLine>{{item.name | uppercase}}</h1>
-            </mat-grig-tile-footer>
+            </mat-grid-tile-footer>
         </mat-grid-tile>
     </mat-grid-list>
 </div>
