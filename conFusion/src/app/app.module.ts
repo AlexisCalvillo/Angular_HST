@@ -17,11 +17,15 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
 
 import {DishService} from './services/dish.service';
 import { Dish } from './shared/dish';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    DishdetailComponent
+    DishdetailComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

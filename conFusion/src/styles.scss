@@ -1,0 +1,43 @@
+@import '~@angular/material/prebuilt-themes/purple-green';
+@import '../node_modules/font-awesome/css/font-awesome.css';
+$lt-gray: #ddd;
+$background-dark: #2da837;
+$background-light: #45cf67;
+$background-pale: #D1C4E9;
+$primary-color-dark:   #1f9b1b;
+$primary-color:        #2077c9;
+$primary-color-light:  #D1C4E9;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FFC107;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+.background-primary {
+  background-color: $background-dark!important;
+}
+.background-accent {
+  background-color: $accent-color!important;
+}
+.text-floral-white {
+  color: floralwhite!important;
+}
+
+.flex-spacer {
+flex: 1 1 auto;
+}
+
+body { 
+  padding: 0; 
+  margin: 0; 
+  font-family: Roboto, sans-serif; 
+  
+}
+.container {
+    margin: 20px;
+    display:flex;
+}
