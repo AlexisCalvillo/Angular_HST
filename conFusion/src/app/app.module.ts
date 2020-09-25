@@ -14,18 +14,26 @@ import {MatButtonModule} from '@angular/material/button';
 import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
-
-import {DishService} from './services/dish.service';
 import { Dish } from './shared/dish';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+//Servicios-----------------------------------------
+import {DishService} from './services/dish.service';
+//Módulos-------------------------------------------
+import {AppRoutingModule} from './app-routing/app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     DishdetailComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,8 @@ import { FooterComponent } from './footer/footer.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule, 
+    AppRoutingModule
   ],
   providers: [
     DishService
