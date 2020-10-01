@@ -1,0 +1,19 @@
+
+.imgR {
+    border-radius: 40%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .textD{
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 16px;    
+    max-height: 32px;  
+    font-size: x-small;
+  }
+  
+  .textDes{  
+    font-size: small;
+  }
