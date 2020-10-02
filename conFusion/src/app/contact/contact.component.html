@@ -1,7 +1,7 @@
 <div class="container"
   fxLayout="column"
   fxLayoutGap="10px"
-  style="background-color:#acd4a8">
+  style="background-color:#acd4a8; color: rgba(30, 33, 218, 0.685);">
 
   <div fxFlex>
     <div>
@@ -39,32 +39,35 @@
 
   <!-- Reactive Forms-->
   <div fxFlex fxFlexOffset='20px' class="form-size">
-    <h3>Quéjate de nosotros :D </h3>
-    <p> {{feedbackForm.value | json }}  {{feedbackForm.status|json}}</p>
+    <h3>Quéjate de nosotros alv :D </h3>
     
     <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width" >
           <input matInput formControlName= "firstname" placeholder="First Name" type="text" required>
+          <mat-error *ngIf="feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched"> pon tu nombre alv</mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
           <input matInput formControlName= "lastname" placeholder="Last Name" type="text" required>
+          <mat-error *ngIf="feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched"> pon el apellido alv</mat-error>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field class="half-width">
           <input matInput formControlName= "telnum" placeholder="Tel. Number" type="tel" required>
+          <mat-error *ngIf="feedbackForm.get('telnum').hasError('required') && feedbackForm.get('telnum').touched"> No que muy lion</mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
           <input matInput formControlName= "email" placeholder="Email" type="email" required>
+          <mat-error *ngIf="feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched"> pon el email alv</mat-error>
         </mat-form-field>
       </p>
       <table class="form-size">
         <td>
-          <mat-slide-toggle formControlName="agree"> Quieres madrearnos y quedamos pa' vernos? </mat-slide-toggle>
+          <mat-slide-toggle formControlName="agree"> </mat-slide-toggle>Quieres madrearnos y quedamos pa' vernos? 
         </td>
         <td>
-          ¿Cómo?<mat-select placeholder="Como?" formControlName="contacttype">
+          ¿Cómo te contactamos pa madrearte?<mat-select placeholder="Como?" formControlName="contacttype" >
             <mat-option *ngFor= "let x of contactType" [value]="x">
               {{x}}
             </mat-option>
@@ -73,11 +76,11 @@
       </table>
       <p>
         <mat-form-field class="full-width">
-          <textarea matInput formControlName="message" placeholder="Date!" rows="12">
+          <textarea matInput formControlName="message" placeholder="Date, che mamador!" rows="12">
           </textarea>
         </mat-form-field>
       </p>
-      <button type="submit" mat-button class="background-primary text-floral-white"> Arre </button>
+      <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid"> Arre </button>
     </form>
   </div>
 </div>
