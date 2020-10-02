@@ -7,7 +7,7 @@
     fxLayoutGap.xs="0">
 
   <div fxFlex="40">
-    <div fxFlex *ngIf="dish">
+      <div fxFlex *ngIf="dish">
         <mat-card>
           <mat-card-header>
             <mat-card-title>
@@ -26,10 +26,15 @@
           </mat-card-actions>
         </mat-card>
       </div>
+      <div [hidden]="dish">
+        <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+    </div>
+    
+     
   </div>
 
   <div fxFlex="40">
-      <mat-card>
+      <mat-card *ngIf="dish">
         <mat-card-header>
             <mat-card-title>
               <h3>Comments</h3>
@@ -40,10 +45,16 @@
                 <p>{{item.comment}} <br>
                 {{item.ratting}} Stars <br>
                 - -{{item.author}} {{item.date|date}}</p>
-                </mat-list>
+                
+              </mat-list>
+
+            
             </mat-card-content> 
             
-        </mat-card>
+      </mat-card>
+      <div [hidden]="dish">
+        <h4>Loading . . . Please Wait</h4>
+      </div>
   </div>
 
 </div>

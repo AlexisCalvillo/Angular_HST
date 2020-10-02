@@ -56,17 +56,23 @@
 
   <div>
     <h2>Corporate Leadership</h2>
-    <div *ngFor="let item of leaders">
-      <div fxLayout="row">
-        <div fxFlex="15%">
-            <img src={{item.image}} class="imgR" >
-        </div>
-        <div fxFlex="80%">
-            <p >{{item.name}}</p>
-            <div class="textDes">{{item.designation}}</div>
-            <div class="textD">{{item.description}}</div>
+    <mat-list *ngIf="leaders">
+      <div *ngFor="let item of leaders">
+        <div fxLayout="row">
+          <div fxFlex="15%">
+              <img src={{item.image}} class="imgR" >
+          </div>
+          <div fxFlex="80%">
+              <p >{{item.name}}</p>
+              <div class="textDes">{{item.designation}}</div>
+              <div class="textD">{{item.description}}</div>
+          </div>
         </div>
       </div>
-    </div>
+    </mat-list>
+  
+  <div [hidden]="leaders">
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
   </div>
 </div>
