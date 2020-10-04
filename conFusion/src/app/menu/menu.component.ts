@@ -19,8 +19,13 @@ export class MenuComponent implements OnInit {
     //Sin promises
     //this.dishes=this.dishService.getDishes();
     //Con promises
-    this.dishService.getDishes().then(
-      (dishes)=>this.dishes=dishes
+    //this.dishService.getDishes().then(
+    //  (dishes)=>this.dishes=dishes
+    //);
+    //Con observables
+    
+    this.dishService.getDishes().subscribe(
+     (dishes)=>this.dishes=dishes
     );
   }
 
