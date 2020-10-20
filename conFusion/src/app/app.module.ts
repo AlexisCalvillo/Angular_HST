@@ -28,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';//Simulación de delays
+import { MatSliderModule } from '@angular/material/slider'; 
 //Servicios-----------------------------------------
 import {DishService} from './services/dish.service';
 import {LeaderService} from './services/leader.service';
@@ -65,7 +66,8 @@ import { PromotionService } from './services/promotion.service';
     MatCheckboxModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSliderModule
   ],
   providers: [
     DishService,
