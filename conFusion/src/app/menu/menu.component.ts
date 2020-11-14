@@ -10,6 +10,8 @@ import {DishService} from '../services/dish.service';
 export class MenuComponent implements OnInit {
 
   dishes: Dish[];
+  errMess: string;
+
   //selectedDish: Dish;
 
   constructor(private dishService:DishService, 
@@ -27,8 +29,9 @@ export class MenuComponent implements OnInit {
     //Con observables
     
     this.dishService.getDishes().subscribe(
-     (dishes)=>this.dishes=dishes
-    );
+     dishes=>this.dishes=dishes,
+    errmess => this.errMess= <any>errmess)
+    //console.log(this.errMess);
   }
 
   //onSelect(dish: Dish){

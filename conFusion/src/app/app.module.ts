@@ -41,6 +41,7 @@ import { HttpModule } from '@angular/http';
 
 //Constantes
 import { baseUrl } from './shared/baseurl';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 
 
 @NgModule({
@@ -76,12 +77,13 @@ import { baseUrl } from './shared/baseurl';
     MatProgressSpinnerModule,
     MatSliderModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [
     DishService,
     LeaderService,
     PromotionService,
+    ProcessHTTPMsgService,
     { provide: 'BaseUrl', useValue: baseUrl }
   ],
   entryComponents: [

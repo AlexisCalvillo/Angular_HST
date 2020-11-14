@@ -80,8 +80,11 @@
             </form>
       </mat-card>
   </div>
-  <div [hidden]="dish">
+  <div [hidden]="dish || errMess">
     <h4>Loading . . . Please Wait</h4>
   </div>
-
+  <div fxFlex *ngIf="errMess">
+    <h1>Error: </h1>
+    <h4>{{errMess}}</h4>
+  </div>
 </div>
