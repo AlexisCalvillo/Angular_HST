@@ -36,6 +36,13 @@ import {LeaderService} from './services/leader.service';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { PromotionService } from './services/promotion.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
+//Constantes
+import { baseUrl } from './shared/baseurl';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,12 +74,15 @@ import { PromotionService } from './services/promotion.service';
     MatSelectModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule,
+    HttpModule
   ],
   providers: [
     DishService,
     LeaderService,
-    PromotionService
+    PromotionService,
+    { provide: 'BaseUrl', useValue: baseUrl }
   ],
   entryComponents: [
     LoginComponent
