@@ -57,7 +57,7 @@
   <div>
     <h2>Corporate Leadership</h2>
     <mat-list *ngIf="leaders">
-      <div *ngFor="let item of leaders">
+      <div *ngFor="let item of leaders" [@expand]>
         <div fxLayout="row">
           <div fxFlex="15%">
               <img src={{item.image}} class="imgR" >
