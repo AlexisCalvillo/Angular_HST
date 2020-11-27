@@ -32,7 +32,7 @@ export class DishService {
 
   getFeaturedDish(): Observable <Dish>{
     return  this.http.get<Dish[]>(baseUrl + 'dishes?featured=true').pipe(map(dish => dish[0]))
-    .pipe(catchError( this.proccesHTTPMsgService.handleError));;
+    .pipe(catchError( this.proccesHTTPMsgService.handleError));
     //of(DISHES.filter((dish) => dish.featured)[0]).pipe(delay(2000));
   }
 

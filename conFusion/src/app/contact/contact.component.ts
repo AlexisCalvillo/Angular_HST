@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType} from '../shared/feedback';
-import { flyInOut } from '../animations/app.animation';
+import { flyInOut, visibility, expand } from '../animations/app.animation';
+import { FeedbackService } from '../services/feedback.service'
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -12,12 +13,16 @@ import { flyInOut } from '../animations/app.animation';
 
   },
   animations:[
-    flyInOut()
+    flyInOut(),
+    expand(),
+    visibility()
   ]
 })
 export class ContactComponent implements OnInit {
   feedbackForm: FormGroup;
   feedback: Feedback;
+  errMess: String;
+  spinSh: boolean;
   contactType = ContactType;
   @ViewChild('fform') feedbackFormDirective;
 
@@ -48,8 +53,10 @@ export class ContactComponent implements OnInit {
       'email': 'Pon uno real'
     }
   };
-  constructor(private fb: FormBuilder) {
-    this.createForm();
+  constructor(private fb: FormBuilder,
+    private fbService: FeedbackService) {
+      this.createForm()
+      this.spinSh=false;
    }
 
    
@@ -91,9 +98,16 @@ export class ContactComponent implements OnInit {
     } 
   }
 
+  resetFeedback(){
+    this.feedback=null;
+    this.spinSh=false;
+  }
+
   onSubmit(){
     this.feedback = this.feedbackForm.value;
     console.log(this.feedback);
+    var feedbackCopy;
+
     this.feedbackForm.reset({
       firstname: '',
       lastname: '',
@@ -103,7 +117,22 @@ export class ContactComponent implements OnInit {
       contacttype: 'None',
       message: ''
     });
+    setTimeout(()=>{
+      this.fbService.submitFeedback(this.feedback)
+    .subscribe(feedback =>{
+      this.feedback = feedback
+    },
+    errMess =>{
+      this.feedback=null;
+      this.errMess = <any>errMess;
+    })
+    this.spinSh=true;
+    },1500)
     this.feedbackFormDirective.resetForm();
+    setTimeout(()=>{
+      this.resetFeedback();
+    },5000);
+    
   }
 
 

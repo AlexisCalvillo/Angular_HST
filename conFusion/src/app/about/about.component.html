@@ -60,7 +60,7 @@
       <div *ngFor="let item of leaders" [@expand]>
         <div fxLayout="row">
           <div fxFlex="15%">
-              <img src={{item.image}} class="imgR" >
+              <img src="{{BaseUrl + item.image}}" class="imgR" >
           </div>
           <div fxFlex="80%">
               <p >{{item.name}}</p>
@@ -71,8 +71,12 @@
       </div>
     </mat-list>
   
-  <div [hidden]="leaders">
+  <div [hidden]="leaders || leaderErrMess">
     <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+  <div fxFlex *ngIf="leaderErrMess">
+    <h1>Error: </h1>
+    <h4>{{leaderErrMess}}</h4>
   </div>
   </div>
 </div>

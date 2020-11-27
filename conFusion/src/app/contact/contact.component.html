@@ -38,7 +38,7 @@
   </div>
 
   <!-- Reactive Forms-->
-  <div fxFlex fxFlexOffset='20px' class="form-size">
+  <div fxFlex fxFlexOffset='20px' class="form-size" [@visibility]="visibility" *ngIf="!feedback"  [@expand]>
     <h3>Quéjate de nosotros alv :D </h3>
     
     <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
@@ -82,5 +82,18 @@
       </p>
       <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid"> Arre </button>
     </form>
+  </div>
+  <div [hidden]="!feedback || spinSh" [@expand] >
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+  <div *ngIf="feedback && spinSh" [@visibility]="visibility" [@expand]> 
+    <h1> Your Submission</h1>
+    <h3>First Name: {{feedback.firstname}}</h3> 
+    <h3>Last Name: {{feedback.lastname}}</h3>
+    <h3>Tel. Number: {{feedback.telnum}}</h3>
+    <h3>Email: {{feedback.email}} </h3>
+    <h3>Contact you? : {{feedback.agree}}</h3>
+    <h3>How? : {{feedback.contacttype}} </h3>
+    <h3>Feedback: {{feedback.message}}</h3>
   </div>
 </div>
